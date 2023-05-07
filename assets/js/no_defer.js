@@ -17,6 +17,15 @@ $(document).ready(function() {
         $(this).removeClass('table-dark');
       }
     }
+    // only select tables that are inside an element with "news" (about page) class
+    if($(this).parents('[class*="news"]').length==1) {
+      // If the theme is dark add table-dark class
+      if (document.documentElement.getAttribute("data-theme") == "dark") {
+        $(this).addClass('table-dark');
+      } else {
+        $(this).removeClass('table-dark');
+      }
+    }
   })
 });
 
