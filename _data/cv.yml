@@ -2,96 +2,120 @@
   type: map
   contents:
     - name: Full Name
-      value: Albert Einstein
-    - name: Date of Birth
-      value: 14th March 1879
+      value: Lance T. Wilhelm
     - name: Languages
-      value: English, German
+      value: English
+    - name: Location
+      value: Joint Base Lewis-McChord, WA
 
 - title: Education
   type: time_table
   contents:
-    - title: PhD
-      institution: University of Zurich, Zurich, Switzerland
-      year: 1905
+    - title: M.S. Analytics 
+      institution: Georgia Institute of Technology
+      year: 2022
       description:
-        - Description 1.
-        - Description 2.
-        - title: Description 3.
+        - title: Focus in computational data analytics
           contents:
-            - Sub-description 1.
-            - Sub-description 2.
-    - title: Federal teaching diploma
-      institution: Eidgenössische Technische Hochschule, Zurich, Switzerland
-      year: 1900
+            - AI/ML
+        - title: Practicum
+          contents: 
+            - Air Force Recruiting Service Job-to-Applicant Matching Optimization
+    - title: B.S. Physics
+      institution: United States Air Force Academy
+      year: 2013
       description:
-        - Description 1.
-        - Description 2.
+        - Focus in spacephysics and astronomy
+        - title: Capstone and Research
+          contents:
+            - Integrated Miniaturized Electrostatic Analyzer (iMESA)
+            - Falcon Telescope Network
 
 - title: Experience
   type: time_table
   contents:
-    - title: Professor of Theoretical Physics
-      institution: Institute for Advanced Study, Princeton University
-      year: 1933 - 1955
+    - title: Director of Operations
+      institution: 361st Recruiting Squadron, AFRS
+      location: Joint Base Lewis-McChord, WA
+      year: 2022 - Present
       description:
-        - Description 1.
-        - Description 2.
-        - title: Description 3.
-          contents:
-            - Sub-description 1.
-            - Sub-description 2.
-    - title: Visiting Professor
-      institution: California Institute of Technology, Pasadena, California, US
-      year: 1933
+        - Drives daily operations for an 84-member recruiting squadron in 34 offices across 721K square miles
+        - Coordinates with squadron leadership to enact Commander’s intent and strategic vision
+        - Oversees squadron operations flight responsible for 3 Military Entrance Processing stations and recruiting administrative actions
+        - Utilizes analytics subject matter expertise to create novel reports on recruiting operations
+
+    - title: Support Flight Commander
+      institution: 361st Recruiting Squadron, AFRS
+      location: Joint Base Lewis-McChord, WA
+      year: 2020 - 2022
       description:
-        - Description 1.
-        - Description 2.
+        - Led squadron’s Support Flight and oversaw Commander Support Staff, Communications, Logistics, and Personnel Sections
+        - Stewarded $1.5M budget, 652 communication equipment items, 60 GOV fleet, and 34 offices across 721K miles supporting 74 recruiters
+        - Primary squadron Approving Official validating Operation and Maintenance and Advertising government purchase card (GPC) accounts
+        - Oversaw civilian personnel management and appraisal as direct supervisor and higher level reviewer for 5 personnel
 
-    - title: Director
-      institution: Kaiser Wilhelm Institute for Physics, Berlin, Germany.
-      year: 1917-1933
-
-    - title: Professor of Theoretical Physics
-      institution: Karl-Ferdinand University, Prague, Czechoslovakia
-      year: 1911 - 1917
+    - title: Chief of Laboratory Operations
+      institution: Harkins Laboratory Complex, AFTAC
+      location: Cheyenne Mountain AFS, CO
+      year: 2017 - 2020
       description:
+        - Managed day-to-day operations for a multi-million dollar laboratory complex
+        - The complex operates two research lab facilities to conduct research and development in ultra-low background radiological analysis methods
 
-    - title: Associate Professor of Theoretical Physics
-      institution: University of Zurich, Zurich, Switzerland
-      year: 1909 - 1911
+    - title: Director of Operations
+      institution: AFRL Maker Hub
+      location: Wright-Patterson AFB, OH
+      year: 2017
+      description:
+        - Ensured continuous operation of an innovative learning and rapid prototyping environment available to over 10,000 government employees
+        - Extended network of AFRL external and internal resources to provide assistance to users looking to collaborate with nontraditional partners
+        - Acted as subject matter expert to the Hub’s capabilities including, but not limited to rapid prototyping, CAD/CAM design, additive manufacturing, CNC technologies, microcontrollers, small electronics, code development, and general fabrication techniques
 
-- title: Open Source Projects
-  type: time_table
-  contents:
-    - title: <a href="https://github.com/alshedivat/al-folio">al-folio</a>
-      year: 2015-now
-      description: A beautiful, simple, clean, and responsive Jekyll theme for academics.
+    - title: Executive Officer
+      institution: Materials and Manufacturing Directorate, AFRL
+      location: Wright-Patterson AFB, OH
+      year: 2015 - 2017
+      description:
+        - Provided executive support to SES Director and O-6 Deputy Director. Planned and executed critical directorate-level taskings
+        - Executed emergency management procedures for a 900-person Directorate with a $750M annual budget and $500M research and development complex
+        - Directed special job openings to eligible military members. Oversaw nomination procedures to max options for career growth
+
+    - title: Non-Destructive Evaluation Engineer
+      institution: Materials and Manufacturing Directorate, AFRL
+      location: Wright-Patterson AFB, OH
+      year: 2013 - 2015
+      description:
+        - Conducted in-house research to improve nondestructive inspection (NDI) capability used to ensure structural integrity
+        - Led over $6M in Nondestructive Evaluation Research and Development, including a high-vis Advanced Technology Demonstration.
+        - Developed strategy for advancing eddy-current-based Nondestructive Investigation technologies to enhance aircraft structural integrity evaluations
 
 - title: Honors and Awards
   type: time_table
   contents:
-    - year: 1921
+    - year: 2022
       items: 
-        - Nobel Prize in Physics 
-        - Matteucci Medal
-    - year: 2029
+        - Air Force Recruiting Service Top Support Flight of the Quarter
+        - 372nd Recruiting Group Lance P. Sijan Award Nominee
+        - Team McChord Company Grade Officer of the Quarter
+    - year: 2021
       items: 
-        - Max Planck Medal
+        - Air Force Recruiting Service, Company Grade Officer of the Quarter
+        - 361st Recruiting Squadron Company Grade Officer of the Year
+        - Team McChord Company Grade Officer of the Quarter
 
 - title: Academic Interests
   type: nested_list
   contents:
-    - title: Topic 1.
+    - title: Deep Learning
       items: 
-        - Description 1.
-        - Description 2.
-    - title: Topic 2.
+        - Theory and application
+        - Computer vision
+        - Natural language processing
+    - title: Data Interactivity and Visualization
       items:
-        - Description 1.
-        - Description 2.
+        - Easing the analysis understanding of datasets
 
 - title: Other Interests
   type: list
   contents:
-    - <u>Hobbies:</u> Hobby 1, Hobby 2, etc.
+    - <u>Hobbies:</u> Fitness (mountain biking, cycling, tennis), Making (3D printing, microcontrollers, lasers)
