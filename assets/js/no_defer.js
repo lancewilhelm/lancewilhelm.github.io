@@ -18,7 +18,7 @@ $(document).ready(function() {
       }
     }
     // only select tables that are inside an element with "news" (about page) class
-    if($(this).parents('[class*="news"]').length==1) {
+    if($(this).parents('[class*="news"]').length==1 || $(this).parents('[class*="card"]').length==1) {
       // If the theme is dark add table-dark class
       if (document.documentElement.getAttribute("data-theme") == "dark") {
         $(this).addClass('table-dark');
