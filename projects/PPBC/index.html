@@ -10,9 +10,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Projects | Lance T. Wilhelm</title>
+    <title>Ping Pong Ball Clock (PPBC) | Lance T. Wilhelm</title>
     <meta name="author" content="Lance T. Wilhelm">
-    <meta name="description" content="A collection of my personal and professional projects. Given my limited traditional academic experiences this has been the primary avenue for the creative employment of my knowledge and skills.">
+    <meta name="description" content="Novel clock design driven by LED strips and a Raspberry Pi controlled via a web app">
     <meta name="keywords" content="jekyll, jekyll-theme, academic-website, portfolio-website, lance wilhelm, air force">
 
 
@@ -38,7 +38,7 @@
     <link rel="shortcut icon" href="data:image/svg+xml,&lt;svg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20100%20100%22&gt;&lt;text%20y=%22.9em%22%20font-size=%2290%22&gt;%F0%9F%A4%93&lt;/text&gt;&lt;/svg&gt;">
     
     <link rel="stylesheet" href="/assets/css/main.css">
-    <link rel="canonical" href="https://lancewilhelm.github.io/projects/">
+    <link rel="canonical" href="https://lancewilhelm.github.io/projects/PPBC/">
 
     <!-- Dark Mode -->
     
@@ -85,8 +85,8 @@
               <li class="nav-item ">
                 <a class="nav-link" href="/publications/">Publications</a>
               </li>
-              <li class="nav-item active">
-                <a class="nav-link" href="/projects/">Projects<span class="sr-only">(current)</span></a>
+              <li class="nav-item ">
+                <a class="nav-link" href="/projects/">Projects</a>
               </li>
               <li class="nav-item ">
                 <a class="nav-link" href="/repositories/">Repositories</a>
@@ -123,53 +123,157 @@
         <div class="post">
 
           <header class="post-header">
-            <h1 class="post-title">Projects</h1>
-            <p class="post-description">A collection of my personal and professional projects. Given my limited traditional academic experiences this has been the primary avenue for the creative employment of my knowledge and skills.</p>
+            <h1 class="post-title">Ping Pong Ball Clock (PPBC)</h1>
+            <p class="post-description">Novel clock design driven by LED strips and a Raspberry Pi controlled via a web app</p>
           </header>
 
           <article>
-            <!-- pages/projects.md -->
-<div class="projects">
-  <!-- Display categorized projects -->
-  <h2 class="category">work</h2>
-  <!-- Generate cards for each project -->
-  <div class="grid">
-  </div>
-  <h2 class="category">fun</h2>
-  <!-- Generate cards for each project -->
-  <div class="grid">
-<!-- _includes/projects.html -->
-<div class="grid-sizer"></div>
-<div class="grid-item">
-  <a href="/projects/PPBC/">
-      <div class="card hoverable">
-<figure>
+            <h2 id="inspiration">Inspiration</h2>
+
+<p>A reddit post originally tipped me off to the project. This <a href="https://www.thingiverse.com/thing:4091854" rel="external nofollow noopener" target="_blank">thingiverse</a> project detailed some 3D printed parts for a ping pong ball clock. Upon further investigation I found an <a href="https://www.instructables.com/id/Ping-Pong-Ball-LED-Clock/" rel="external nofollow noopener" target="_blank">instructable</a> project that laid out designs that did not involve 3D printing and optimized the LED placement. I used this instructable project as the basis for the hardware design. However, I knew from the start that I was going to control the clock using a raspberry pi (zero) and that I would build upon a previous project that controlled LEDs using a local web app.</p>
+
+<h2 id="design-concept">Design Concept</h2>
+
+<p>This firmware is centered in Python because of how easy it is to use and a couple easy to use and essential libraries:</p>
+
+<ul>
+  <li>Neopixel libraries (LED drivers)</li>
+  <li>Flask (web server)</li>
+</ul>
+
+<p>The layout of the LED strips called for a font libraries and character writing functions to be written from scratch. The only code reutilized from previous projects were those that drove single LED illumination.</p>
+
+<div class="row">
+    <div class="col-sm mt-3 mt-md-0">
+        <figure>
 
   <picture>
     
-    <source class="responsive-img-srcset" media="(max-width: 480px)" srcset="/assets/img/ppbc-480.webp"></source>
-    <source class="responsive-img-srcset" media="(max-width: 800px)" srcset="/assets/img/ppbc-800.webp"></source>
-    <source class="responsive-img-srcset" media="(max-width: 1400px)" srcset="/assets/img/ppbc-1400.webp"></source>
+    <source class="responsive-img-srcset" media="(max-width: 480px)" srcset="/assets/img/layout%20visualizer-01-480.webp"></source>
+    <source class="responsive-img-srcset" media="(max-width: 800px)" srcset="/assets/img/layout%20visualizer-01-800.webp"></source>
+    <source class="responsive-img-srcset" media="(max-width: 1400px)" srcset="/assets/img/layout%20visualizer-01-1400.webp"></source>
     
 
     <!-- Fallback to the original file -->
-    <img src="/assets/img/ppbc.jpg" width="auto" height="auto" alt="project thumbnail" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
+    <img src="/assets/img/layout%20visualizer-01.jpg" class="img-fluid rounded z-depth-1" width="auto" height="auto" title="PPBC Layout Design" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
 
   </picture>
 
 </figure>
 
-        <div class="card-body">
-          <h2 class="card-title">Ping Pong Ball Clock (PPBC)</h2>
-          <p class="card-text">Novel clock design driven by LED strips and a Raspberry Pi controlled via a web app</p>
-          <div class="row ml-1 mr-1 p-0">
-          </div>
-        </div>
-      </div>
-    </a>
+    </div>
 </div>
-  </div>
+<div class="caption">
+    PPBC wiring design concept. This aided driver programming as it was essential to map the correct LEDs in sequence with their coordinates on the LED array. The code utilized a 2-dimensional array to store the LED indices, so "999" was used for spots in the array where there existed no ball.
 </div>
+
+<p>Novel font libraries were designed to give the user something more to look at than the single font from the original reference project. It also expanded the font from only digits to characters as well, which later becomes essential for weather and other messages.</p>
+
+<div class="row">
+    <div class="col-sm mt-3 mt-md-0">
+        <figure>
+
+  <picture>
+    
+    <source class="responsive-img-srcset" media="(max-width: 480px)" srcset="/assets/img/layout%20visualizer-02-480.webp"></source>
+    <source class="responsive-img-srcset" media="(max-width: 800px)" srcset="/assets/img/layout%20visualizer-02-800.webp"></source>
+    <source class="responsive-img-srcset" media="(max-width: 1400px)" srcset="/assets/img/layout%20visualizer-02-1400.webp"></source>
+    
+
+    <!-- Fallback to the original file -->
+    <img src="/assets/img/layout%20visualizer-02.jpg" class="img-fluid rounded z-depth-1" width="auto" height="auto" title="PPBC Digit Font 1" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
+
+  </picture>
+
+</figure>
+
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-sm mt-3 mt-md-0">
+        <figure>
+
+  <picture>
+    
+    <source class="responsive-img-srcset" media="(max-width: 480px)" srcset="/assets/img/layout%20visualizer-03-480.webp"></source>
+    <source class="responsive-img-srcset" media="(max-width: 800px)" srcset="/assets/img/layout%20visualizer-03-800.webp"></source>
+    <source class="responsive-img-srcset" media="(max-width: 1400px)" srcset="/assets/img/layout%20visualizer-03-1400.webp"></source>
+    
+
+    <!-- Fallback to the original file -->
+    <img src="/assets/img/layout%20visualizer-03.jpg" class="img-fluid rounded z-depth-1" width="auto" height="auto" title="PPBC Digit Font 2" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
+
+  </picture>
+
+</figure>
+
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-sm mt-3 mt-md-0">
+        <figure>
+
+  <picture>
+    
+    <source class="responsive-img-srcset" media="(max-width: 480px)" srcset="/assets/img/layout%20visualizer-04-480.webp"></source>
+    <source class="responsive-img-srcset" media="(max-width: 800px)" srcset="/assets/img/layout%20visualizer-04-800.webp"></source>
+    <source class="responsive-img-srcset" media="(max-width: 1400px)" srcset="/assets/img/layout%20visualizer-04-1400.webp"></source>
+    
+
+    <!-- Fallback to the original file -->
+    <img src="/assets/img/layout%20visualizer-04.jpg" class="img-fluid rounded z-depth-1" width="auto" height="auto" title="PPBC Character Font" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
+
+  </picture>
+
+</figure>
+
+    </div>
+</div>
+<div class="caption">
+    PPBC font designs.
+</div>
+
+<h2 id="implementation">Implementation</h2>
+
+<p>The clock is coded with a backend that consists of a continuous loop, checking for updates and updating the clock, and a front end which is a threaded flask server which acts as both the web app and the API for updating the clock. Updates passed through the API take effect on the next iteration of the loop. The API directly changes features stored in an object. This object is an instance of a custom class called <code class="language-plaintext highlighter-rouge">PingPongBoard</code> and stores essential variables and functions used for driving the LEDs. Custom color animations as well as content features (i.e. time, date, weather, message) are implemented in this object.</p>
+
+<p>Both front and back end are hosted simultaneously on the Raspberry Pi which drives the LEDs. This requires that the Pi be accessible on the local network so that local devices can access the web app.</p>
+
+<h2 id="video">Video</h2>
+
+<center>
+    <iframe width="800" height="500" src="https://www.youtube.com/embed/jIoWmhVCPb4" title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen=""></iframe>
+</center>
+
+<p>At the time of this post the video had 17K views! Thank you all to for the support and I hope you have been able to make PPBCs of your own.</p>
+
+<h2 id="github-repo">Github Repo</h2>
+
+<div class="repositories d-flex flex-wrap flex-md-row flex-column justify-content-between align-items-center">
+    
+
+
+
+<div class="repo p-2 text-center">
+  <a href="https://github.com/lancewilhelm/pingPongBallClock" rel="external nofollow noopener" target="_blank">
+    <img class="repo-img-light w-100" alt="lancewilhelm/pingPongBallClock" src="https://github-readme-stats.vercel.app/api/pin/?username=lancewilhelm&amp;repo=pingPongBallClock&amp;theme=buefy&amp;show_owner=false">
+    <img class="repo-img-dark w-100" alt="lancewilhelm/pingPongBallClock" src="https://github-readme-stats.vercel.app/api/pin/?username=lancewilhelm&amp;repo=pingPongBallClock&amp;theme=radical&amp;show_owner=false">
+  </a>
+</div>
+
+</div>
+
+<h2 id="future-work">Future Work</h2>
+
+<h4 id="web-app">Web App</h4>
+
+<p>The web application can be brought into the modern age with libraries like React or even Jekyll sites like this one. The trick to make it available for hosting via the flask python server. Other solutions are possible, but the simple setup of flask servers make them ideal for this use case.</p>
+
+<h4 id="drivers">Drivers</h4>
+
+<p>The python drivers should move away from a continual loop whereby updates only occur on new loop instances. Severe slowing of framerate and thus polling rate can be seen when full board LED animations are implemented. One way to address this may be through the <code class="language-plaintext highlighter-rouge">threading</code> package built into Python. This has the potential to allow for asynchronous tasks which could effectively separate API polling from LED driving.</p>
 
           </article>
 
