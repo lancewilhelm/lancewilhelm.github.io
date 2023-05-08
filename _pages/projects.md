@@ -2,7 +2,7 @@
 layout: page
 title: Projects
 permalink: /projects/
-description: A collection of my personal and professional projects. Given my limited traditional academic experiences this has been the primary avenue for the creative emplyment of my knowledge and skills. 
+description: A collection of my personal and professional projects. Given my limited traditional academic experiences this has been the primary avenue for the creative employment of my knowledge and skills. 
 nav: true
 nav_order: 2
 display_categories: [work, fun]
