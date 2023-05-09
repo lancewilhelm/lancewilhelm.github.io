@@ -17,7 +17,7 @@ selected_papers: true # includes a list of papers marked as "selected={true}"
 social: true  # includes social icons at the bottom of the page
 ---
 
-I am an experienced team and laboratory leader with a demonstrated history of working in the Department of Defense (DoD) research industry. I am enthralled by the state-of-the-art Machine Learning (ML) and Deep Learning (DL) research and development. My diverse academic and professional experiences have allowed me to explore various fields and ultimately led me to my passion for ML/DL.
+I am an experienced team and laboratory leader with a demonstrated history of working in the Department of Defense (DoD) research industry. I am enthralled by the state-of-the-art Machine Learning (ML) and Deep Learning (DL) research and development. My diverse academic and professional experiences have allowed me to explore various fields and ultimately led to my passion for ML/DL.
 
 #### Education
 

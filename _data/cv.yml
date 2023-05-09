@@ -108,12 +108,13 @@
   contents:
     - title: Deep Learning
       items: 
-        - Theory and application
-        - Computer vision
-        - Natural language processing
-    - title: Data Interactivity and Visualization
+        - Theory and Implementation
+        - Multimodal
+        - Computer Vision
+        - Natural Language Processing
+    - title: Data Visualization
       items:
-        - Easing the analysis and understanding of datasets
+        - Improving analyses interpretation/understanding
 
 - title: Other Interests
   type: list
