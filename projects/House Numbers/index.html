@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <!-- Head -->
+  <head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">    <!-- Metadata, OpenGraph and Schema.org -->
+    
+
+    <!-- Standard metadata -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>House Number Detection and Classification | Lance T. Wilhelm</title>
+    <meta name="author" content="Lance T. Wilhelm">
+    <meta name="description" content="CS6476 Computer Vision final project, finds and classifies numbers within images using MSER and CNN">
+    <meta name="keywords" content="jekyll, jekyll-theme, academic-website, portfolio-website, lance wilhelm, air force">
+
+
+    <!-- Bootstrap & MDB -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha256-DF7Zhf293AJxJNTmh5zhoYYIMs2oXitRfBjY+9L//AY=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mdbootstrap@4.20.0/css/mdb.min.css" integrity="sha256-jpjYvU3G3N6nrrBwXJoVEYI/0zw8htfFnhT9ljN3JJw=" crossorigin="anonymous">
+
+    <!-- Bootstrap Table -->
+    <link defer rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.21.3/dist/bootstrap-table.min.css">
+
+    <!-- Fonts & Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css" integrity="sha256-mUZM63G8m73Mcidfrv5E+Y61y7a12O5mW4ezU3bxqW4=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/academicons@1.9.1/css/academicons.min.css" integrity="sha256-i1+4qU2G2860dGGIOJscdC30s9beBXjFfzjWLjBRsBg=" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700%7CRoboto+Slab:100,300,400,500,700%7CMaterial+Icons">
+
+    <!-- Code Syntax Highlighting -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jwarby/jekyll-pygments-themes@master/github.css" media="" id="highlight_theme_light">
+
+    
+
+    <!-- Styles -->
+    
+    <link rel="shortcut icon" href="data:image/svg+xml,&lt;svg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20100%20100%22&gt;&lt;text%20y=%22.9em%22%20font-size=%2290%22&gt;%F0%9F%A4%93&lt;/text&gt;&lt;/svg&gt;">
+    
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <link rel="canonical" href="https://lancewilhelm.github.io/projects/House%20Numbers/">
+
+    <!-- Dark Mode -->
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jwarby/jekyll-pygments-themes@master/native.css" media="none" id="highlight_theme_dark">
+
+    <script src="/assets/js/theme.js"></script>
+    <script src="/assets/js/dark_mode.js"></script>
+    
+
+  </head>
+
+  <!-- Body -->
+  <body class="fixed-top-nav ">
+
+    <!-- Header -->
+    <header>
+
+      <!-- Nav Bar -->
+      <nav id="navbar" class="navbar navbar-light navbar-expand-sm fixed-top">
+        <div class="container">
+          <a class="navbar-brand title font-weight-lighter" href="/">Lance T. Wilhelm</a>
+          <!-- Navbar Toggle -->
+          <button class="navbar-toggler collapsed ml-auto" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar top-bar"></span>
+            <span class="icon-bar middle-bar"></span>
+            <span class="icon-bar bottom-bar"></span>
+          </button>
+
+          <div class="collapse navbar-collapse text-right" id="navbarNav">
+            <ul class="navbar-nav ml-auto flex-nowrap">
+
+              <!-- About -->
+              <li class="nav-item ">
+                <a class="nav-link" href="/">About</a>
+              </li>
+              
+              <!-- Blog -->
+              <li class="nav-item ">
+                <a class="nav-link" href="/blog/">Blog</a>
+              </li>
+
+              <!-- Other pages -->
+              <li class="nav-item ">
+                <a class="nav-link" href="/publications/">Publications</a>
+              </li>
+              <li class="nav-item ">
+                <a class="nav-link" href="/projects/">Projects</a>
+              </li>
+              <li class="nav-item ">
+                <a class="nav-link" href="/repositories/">Repositories</a>
+              </li>
+              <li class="nav-item ">
+                <a class="nav-link" href="/cv/">CV</a>
+              </li>
+
+              <!-- Toogle theme mode -->
+              <li class="toggle-container">
+                <button id="light-toggle" title="Change theme">
+                  <i class="fas fa-moon"></i>
+                  <i class="fas fa-sun"></i>
+                </button>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+      <!-- Scrolling Progress Bar -->
+      <progress id="progress" value="0">
+        <div class="progress-container">
+          <span class="progress-bar"></span>
+        </div>
+      </progress>
+    </header>
+
+
+    <!-- Content -->
+    <div class="container mt-5">
+      
+        <!-- page.html -->
+        <div class="post">
+
+          <header class="post-header">
+            <h1 class="post-title">House Number Detection and Classification</h1>
+            <p class="post-description">CS6476 Computer Vision final project, finds and classifies numbers within images using MSER and CNN</p>
+          </header>
+
+          <article>
+            <p><a href="/assets/pdf/CS6476___Final_Project.pdf" target="_blank" rel="noopener noreferrer" class="float-right"><i class="fas fa-file-pdf" style="font-size: 20pt;"></i></a></p>
+
+<h2 id="introduction">Introduction</h2>
+<p>Image classification using artificial intelligence techniques, including deep learning, has been a topic of extensive research. Early classification techniques involved methods such as Scale Invariant Feature Transform (SIFT), Histogram of Gradients (HOG), support vector machines (SVM), and K-means clustering. However, the advent of Convolutional Neural Networks (CNN) brought about significant improvements in the ability of computers to quickly and accurately classify images.</p>
+
+<h4 id="cnn">CNN</h4>
+<p>Fukushima’s “neocognitron” laid the groundwork for CNNs, which was later developed into the first effective CNN, LeNet, by LeCun et al. This model achieved low error rates on the MNIST dataset. In 2012, Krizhevsky et al. developed AlexNet, which marked a breakthrough in CNN development and was used for the ImageNet Large Scale Visual Recognition Challenge (ILSVRC). Since then, modern CNNs like VGG-16 and ResNet have continued to outperform previous benchmarks.</p>
+
+<h4 id="text-detection">Text Detection</h4>
+<p>Text detection within images has also seen a boost in performance with the advent of CNNs. Before CNNs, text detection and classification methods included thresholding, K-means clustering, and AdaBoost classifier. Matas et al. developed a technique to extract maximally stable extremal regions (MSER) from images, which proved useful in detecting text objects within images. Techniques such as geometric features, stroke width transform (SWT), and Canny edge detection have been used to filter non-text regions.</p>
+
+<h4 id="svhn">SVHN</h4>
+<p>This project specifically focuses on digit detection and classification within images. The Street View House Numbers (SVHN) dataset, containing over 600,000 labeled digits from Street View images, is used to train a CNN classifier. Recognizing characters in complex scenes such as photographs is more challenging compared to early datasets like MNIST. The project highlights that there is room for improvement in detecting and classifying digits with horizontal text and no vertical overlapping.</p>
+
+<h2 id="approach">Approach</h2>
+<p>This project proposes a two-step approach for detecting and classifying text within images. The first step involves region of interest (ROI) detection using MSER and filtering based on aspect ratio, Canny edges, and non-maximum suppression (NMS). The second step involves CNN digit classification of the detected ROIs, including non-text thresholding.</p>
+
+<p>The MSER detector, implemented using the OpenCV Python package, is tuned to search for individual digits rather than whole words. Detected regions and bounding boxes are filtered based on their aspect ratio, with any region or bounding box having an aspect ratio less than 1 or greater than 3.5 being filtered out. Regions without Canny edges covering more than 10% of their pixels are also filtered out. The remaining bounding boxes are converted to squares and arranged in ascending order by the x-coordinate of the top-left point of the square.</p>
+
+<p>The digit classification CNN is trained on the entire SVHN dataset, including additional images provided. The training set is split into a training and validation set to evaluate model performance during training and enable the selection of the best model. The model with the best accuracy on the validation set is chosen as the final model and evaluated on a separate test dataset. The dataset sizes are: 589,736 for training, 14,652 for validation, and 26,032 for testing. All models are trained using a single Nvidia RTX 3090 Ti GPU.</p>
+
+<p>ROIs detected in the first step are passed through the trained CNN to receive digit classifications. The output for each image is a one-hot vector of length 10, containing likelihood values for each digit. Taking the argmax of the resulting vector indicates the most likely detected digit. Early analysis shows that regions containing text typically have values greater than 5.5, so any ROI with a predicted maximum value less than or equal to 5.5 is filtered out at this stage. The resulting classifications are then converted to strings and returned as the detected string of digits in an image.</p>
+
+<div class="row">
+    <div class="col-sm mt-3 mt-md-0">
+        <center>
+        <figure>
+
+  <picture>
+    
+    <source class="responsive-img-srcset" media="(max-width: 480px)" srcset="/assets/img/house%20numbers/fig_1a-480.webp"></source>
+    <source class="responsive-img-srcset" media="(max-width: 800px)" srcset="/assets/img/house%20numbers/fig_1a-800.webp"></source>
+    <source class="responsive-img-srcset" media="(max-width: 1400px)" srcset="/assets/img/house%20numbers/fig_1a-1400.webp"></source>
+    
+
+    <!-- Fallback to the original file -->
+    <img src="/assets/img/house%20numbers/fig_1a.jpg" class="img-fluid rounded z-depth-1" width="600" height="auto" title="Figure 1a" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
+
+  </picture>
+
+</figure>
+
+        </center>
+    </div>
+</div>
+<div class="caption">
+    Figure 1a. Detected squares
+</div>
+<div class="row">
+    <div class="col-sm mt-3 mt-md-0">
+        <center>
+        <figure>
+
+  <picture>
+    
+    <source class="responsive-img-srcset" media="(max-width: 480px)" srcset="/assets/img/house%20numbers/fig_1b-480.webp"></source>
+    <source class="responsive-img-srcset" media="(max-width: 800px)" srcset="/assets/img/house%20numbers/fig_1b-800.webp"></source>
+    <source class="responsive-img-srcset" media="(max-width: 1400px)" srcset="/assets/img/house%20numbers/fig_1b-1400.webp"></source>
+    
+
+    <!-- Fallback to the original file -->
+    <img src="/assets/img/house%20numbers/fig_1b.jpg" class="img-fluid rounded z-depth-1" width="600" height="auto" title="Figure 1b" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
+
+  </picture>
+
+</figure>
+
+        </center>
+    </div>
+</div>
+<div class="caption">
+    Figure 1b. Extracted tiles
+</div>
+
+<h2 id="results-and-analysis">Results and Analysis</h2>
+
+<p>The text ROI detector performed with marginal success. Images containing bolder digits with fewer conflicting blobs of similar size tended to perform better than images with thinner text in more complex scenes. The MSER detector struggles with blurry blobs, and some geometric feature constraints could have filtered out positive ROIs. Cho et al. raise concerns about MSER-based detectors improperly filtering out positive text candidate regions in their paper and relate it to the recall criterion.</p>
+
+<p>Using CLAHE for image normalization helped the algorithm handle changes in contrast and luminance, as demonstrated by the “1” digit tile in figure 1b, which contains shading that splits the image in half. The final results from the training selection of the CNN model used for step 2, digit classification, are given in table 1. The best model came from fine-tuning a pretrained ResNet18 model over 24 epochs, which proved more effective in training efficiency and validation performance compared to VGG16. Fine-tuning a pretrained VGG16 model took approximately six times longer per epoch to train and resulted in lower performance.</p>
+
+<p>Additional models were trained using the original 32 square pixel images in color and grayscale. While their performance was relatively high, they did not outperform the models that transformed the 32 square pixel images into 224-pixel squares. Models that utilized training image augmentation yielded appreciable gains in the model’s generalization, as shown by the validation loss curves in figure 2.</p>
+
+<div class="row">
+    <div class="col-sm mt-3 mt-md-0">
+        <center>
+        <figure>
+
+  <picture>
+    
+    <source class="responsive-img-srcset" media="(max-width: 480px)" srcset="/assets/img/house%20numbers/fig_2-480.webp"></source>
+    <source class="responsive-img-srcset" media="(max-width: 800px)" srcset="/assets/img/house%20numbers/fig_2-800.webp"></source>
+    <source class="responsive-img-srcset" media="(max-width: 1400px)" srcset="/assets/img/house%20numbers/fig_2-1400.webp"></source>
+    
+
+    <!-- Fallback to the original file -->
+    <img src="/assets/img/house%20numbers/fig_2.jpg" class="img-fluid rounded z-depth-1" width="600" height="auto" title="Figure 2" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
+
+  </picture>
+
+</figure>
+
+        </center>
+    </div>
+</div>
+<div class="caption">
+    Figure 2. Validation loss for CNN models
+</div>
+
+<p>The loss function for all models was the cross-entropy loss, which provides an effective probabilistic comparison between classes in a multi-class classification model. The Adam optimizer was chosen for its quick and efficient convergence to a solution. The learning rate was set initially to 3 × 10^(-4) for the Adam optimizer and 1 × 10^(-2) for SGD. A learning rate scheduler was used to decrease the learning rate by a factor of 10 every 7 epochs. The batch size was chosen to maximize GPU memory usage to speed up training.</p>
+
+<p>The selected model yielded an accuracy of 98.421% when evaluated on the test dataset. The confusion matrix in figure 3 shows consistent performance in the classification of digits, with all having an accuracy of 98% or greater, except for the “5” digit with an accuracy of 97.9%. Further training epochs may have yielded greater accuracy, but the decreasing performance increase per epoch would have necessitated many more epochs to see a significant gain.</p>
+
+<div class="row">
+    <div class="col-sm mt-3 mt-md-0">
+        <center>
+        <figure>
+
+  <picture>
+    
+    <source class="responsive-img-srcset" media="(max-width: 480px)" srcset="/assets/img/house%20numbers/fig_3-480.webp"></source>
+    <source class="responsive-img-srcset" media="(max-width: 800px)" srcset="/assets/img/house%20numbers/fig_3-800.webp"></source>
+    <source class="responsive-img-srcset" media="(max-width: 1400px)" srcset="/assets/img/house%20numbers/fig_3-1400.webp"></source>
+    
+
+    <!-- Fallback to the original file -->
+    <img src="/assets/img/house%20numbers/fig_3.jpg" class="img-fluid rounded z-depth-1" width="600" height="auto" title="Figure 3" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
+
+  </picture>
+
+</figure>
+
+        </center>
+    </div>
+</div>
+<div class="caption">
+    Figure 3. Confusion matrix for the results of the classification of the test SVHN dataset. The final ResNet18 model achieved an accuracy of 98.421% on the dataset. n = 25621
+</div>
+
+<h2 id="future-work">Future Work</h2>
+
+<p>Better detection of ROIs can be achieved through deep learning. Two notable models that handle text detection within images are EAST [28] and CRAFT [2]. These models are trained to find text within an image and would improve step 1 of the algorithm presented in this project. Boosting the accuracy of the ROI detection would impact the algorithm’s overall performance, as most of the failures occur in the incorrect classification of text regions.</p>
+
+<p>Furthermore, more exploration of CNNs for digit classification could be performed. There exist published models that currently handle the classification of the SVHN dataset better than ResNet18. However, any gains in classification performance for this algorithm would not outweigh the benefits of increasing step 1 performance. Initial efforts should be focused on improving ROI detection.</p>
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p>An attempt at accurately detecting and classifying digits in images was given in this project. The two-step algorithm proposed uses MSER with various filtering techniques to identify ROIs that may contain digits. Then, a fine-tuned ResNet18 CNN classifies the digit contained within the regions of interest and further filters out unlikely candidates. The algorithm performs well-detecting ROIs for sharp images that contain limited complicated blobs and bold text.</p>
+
+<p>The CNN performs well classifying digits within the image squares, as indicated by the accuracy on the test dataset. More work should be done to improve the detection of the ROI detector by using state-of-the-art deep learning models to detect text. The results of this project’s algorithm would be greatly improved by modernizing the ROI detector.</p>
+
+
+          </article>
+
+        </div>
+
+      
+    </div>
+
+    <!-- Footer -->    
+    <footer class="fixed-bottom">
+      <div class="container mt-0">
+        © Copyright 2023 Lance T. Wilhelm. Powered by <a href="https://jekyllrb.com/" target="_blank" rel="external nofollow noopener">Jekyll</a> with <a href="https://github.com/alshedivat/al-folio" rel="external nofollow noopener" target="_blank">al-folio</a> theme. Hosted by <a href="https://pages.github.com/" target="_blank" rel="external nofollow noopener">GitHub Pages</a>.
+Last updated: May 09, 2023.
+      </div>
+    </footer>
+
+    <!-- JavaScripts -->
+    <!-- jQuery -->
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+    <!-- Bootsrap & MDB scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha256-fgLAgv7fyCGopR/gBNq2iW3ZKIdqIcyshnUULC4vex8=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mdbootstrap@4.20.0/js/mdb.min.js" integrity="sha256-NdbiivsvWt7VYCt6hYNT3h/th9vSTL4EDWeGs5SN3DA=" crossorigin="anonymous"></script>
+
+    <!-- Masonry & imagesLoaded -->
+  <script defer src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js" integrity="sha256-Nn1q/fx0H7SNLZMQ5Hw5JLaTRZp0yILA/FRexe19VdI=" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
+  <script defer src="/assets/js/masonry.js" type="text/javascript"></script>
+    
+  <!-- Medium Zoom JS -->
+  <script defer src="https://cdn.jsdelivr.net/npm/medium-zoom@1.0.8/dist/medium-zoom.min.js" integrity="sha256-7PhEpEWEW0XXQ0k6kQrPKwuoIomz8R8IYyuU1Qew4P8=" crossorigin="anonymous"></script>
+  <script defer src="/assets/js/zoom.js"></script>
+
+  <!-- Bootstrap Table -->
+  <script defer src="https://unpkg.com/bootstrap-table@1.21.3/dist/bootstrap-table.min.js"></script>
+
+  <!-- Load Common JS -->
+  <script src="/assets/js/no_defer.js"></script>
+  <script defer src="/assets/js/common.js"></script>
+  <script defer src="/assets/js/copy_code.js" type="text/javascript"></script>
+
+    
+  <script async src="https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js"></script>
+  <script async src="https://badge.dimensions.ai/badge.js"></script>
+
+    <!-- MathJax -->
+  <script type="text/javascript">
+    window.MathJax = {
+      tex: {
+        tags: 'ams'
+      }
+    };
+  </script>
+  <script defer type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/tex-mml-chtml.js"></script>
+  <script defer src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+
+    
+    
+
+<!-- Scrolling Progress Bar -->
+<script type="text/javascript">
+  /*
+   * This JavaScript code has been adapted from the article 
+   * https://css-tricks.com/reading-position-indicator/ authored by Pankaj Parashar, 
+   * published on the website https://css-tricks.com on the 7th of May, 2014.
+   * Couple of changes were made to the original code to make it compatible 
+   * with the `al-foio` theme.
+   */
+  const progressBar = $("#progress");
+  /*
+   * We set up the bar after all elements are done loading.
+   * In some cases, if the images in the page are larger than the intended
+   * size they'll have on the page, they'll be resized via CSS to accomodate
+   * the desired size. This mistake, however, breaks the computations as the
+   * scroll size is computed as soon as the elements finish loading.
+   * To account for this, a minimal delay was introduced before computing the
+   * values.
+   */
+  window.onload = function () {
+    setTimeout(progressBarSetup, 50);
+  };
+  /*
+   * We set up the bar according to the browser.
+   * If the browser supports the progress element we use that.
+   * Otherwise, we resize the bar thru CSS styling
+   */
+  function progressBarSetup() {
+    if ("max" in document.createElement("progress")) {
+      initializeProgressElement();
+      $(document).on("scroll", function() {
+        progressBar.attr({ value: getCurrentScrollPosition() });
+      });
+      $(window).on("resize", initializeProgressElement);
+    } else {
+      resizeProgressBar();
+      $(document).on("scroll", resizeProgressBar);
+      $(window).on("resize", resizeProgressBar);
+    }
+  }
+  /*
+   * The vertical scroll position is the same as the number of pixels that
+   * are hidden from view above the scrollable area. Thus, a value > 0 is
+   * how much the user has scrolled from the top
+   */
+  function getCurrentScrollPosition() {
+    return $(window).scrollTop();
+  }
+
+  function initializeProgressElement() {
+    let navbarHeight = $("#navbar").outerHeight(true);
+    $("body").css({ "padding-top": navbarHeight });
+    $("progress-container").css({ "padding-top": navbarHeight });
+    progressBar.css({ top: navbarHeight });
+    progressBar.attr({
+      max: getDistanceToScroll(),
+      value: getCurrentScrollPosition(),
+    });
+  }
+  /*
+   * The offset between the html document height and the browser viewport
+   * height will be greater than zero if vertical scroll is possible.
+   * This is the distance the user can scroll
+   */
+  function getDistanceToScroll() {
+    return $(document).height() - $(window).height();
+  }
+
+  function resizeProgressBar() {
+    progressBar.css({ width: getWidthPercentage() + "%" });
+  }
+  // The scroll ratio equals the percentage to resize the bar
+  function getWidthPercentage() {
+    return (getCurrentScrollPosition() / getDistanceToScroll()) * 100;
+  }
+</script>
+
+  </body>
+</html>

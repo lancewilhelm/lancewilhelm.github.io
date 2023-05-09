@@ -12,7 +12,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>USAF Recruit Job Match Optimizer | Lance T. Wilhelm</title>
     <meta name="author" content="Lance T. Wilhelm">
-    <meta name="description" content="Mixed-integer linear program optimization for matching USAF applicants to jobs">
+    <meta name="description" content="Applied Analytics Practicum, Mixed-integer linear program optimization for matching USAF applicants to jobs">
     <meta name="keywords" content="jekyll, jekyll-theme, academic-website, portfolio-website, lance wilhelm, air force">
 
 
@@ -124,11 +124,13 @@
 
           <header class="post-header">
             <h1 class="post-title">USAF Recruit Job Match Optimizer</h1>
-            <p class="post-description">Mixed-integer linear program optimization for matching USAF applicants to jobs</p>
+            <p class="post-description">Applied Analytics Practicum, Mixed-integer linear program optimization for matching USAF applicants to jobs</p>
           </header>
 
           <article>
-            <h2 id="introduction">Introduction</h2>
+            <p><a href="/assets/pdf/Practicum_Final_Report_Wilhelm.pdf" target="_blank" rel="noopener noreferrer" class="float-right"><i class="fas fa-file-pdf" style="font-size: 20pt;"></i></a></p>
+
+<h2 id="introduction">Introduction</h2>
 
 <p>The U.S. Air Force (USAF) adopted an optimization algorithm during the 2020 pandemic for job-to-applicant matching. This project explores the efficiency of various optimization heuristics to achieve the best job-matching performance.</p>
 
@@ -232,7 +234,7 @@ E) DO with custom heuristic weights (Equation 1)</p>
     </div>
 </div>
 <div class="caption">
-    Figure 1. Matching results
+    Figure 1. Initial Results from all 60 trials
 </div>
 
 <p>The overall performance across all trials is not consistent, which is expected given that the trials are run across multiple periods with 4 different datasets and 5 different matching heuristics. More insight should be gleaned from the result attributes and heuristic performance.</p>
@@ -264,7 +266,7 @@ E) DO with custom heuristic weights (Equation 1)</p>
     </div>
 </div>
 <div class="caption">
-    Figure 2. Correlation plot
+    Figure 2. Correlations between numerical variables in the results table
 </div>
 
 <p>There is a clear positive correlation between jobs and date range length, which follows the logic: as the date range increases, more jobs become available. Next, there is a positive relationship between the total number of applicants on the QW list and who is available. More significantly, there is a positive correlation between the job match rate and the number of applicants on the QW and available QW. This indicates that the more applicants are in our QW and available, the better our match rate will be. Figure 3 shows this correlation and plots a linear regression.</p>
@@ -292,7 +294,7 @@ E) DO with custom heuristic weights (Equation 1)</p>
     </div>
 </div>
 <div class="caption">
-    Figure 3. Correlation plot
+    Figure 3. Plot of total QW count versus job match rate
 </div>
 
 <p>However, the best-fit line should not be utilized to make useful projections other than rough job match rate performance estimates. Ultimately the recruiting goal is to have a job match rate of 100%, so our positive correlation indicates that to increase the number of matches, the number of applicants on the QW and available should increase. This has long been known within the recruiting enterprise and has been the focus of remedial recruiting efforts in the past year.</p>
@@ -328,7 +330,7 @@ E) DO with custom heuristic weights (Equation 1)</p>
     </div>
 </div>
 <div class="caption">
-    Figure 4.
+    Figure 4. Differences in matches for each heuristic compared to heuristic E
 </div>
 
 <p>However, there are trials where their performance matches, albeit only for trials when the total number of matches is low. Figure 5 shows a clear relationship between the number of matches and the spread of performance in the heuristics. As the number of matches increases, the performance of the loop heuristics decreases, and the spread in performance increases, as indicated by Figure 6.</p>
@@ -354,7 +356,7 @@ E) DO with custom heuristic weights (Equation 1)</p>
 
         </center>
         <div class="caption">
-            Figure 5
+            Figure 5. Matches versus matches difference to E
         </div>
     </div>
     <div class="col-sm-6 mt-3 mt-md-0">
@@ -377,7 +379,7 @@ E) DO with custom heuristic weights (Equation 1)</p>
 
         </center>
         <div class="caption">
-            Figure 6
+            Figure 6. Matches versus standard deviation of matches difference to E
         </div>
     </div>
 </div>
@@ -456,7 +458,7 @@ E) DO with custom heuristic weights (Equation 1)</p>
 
         </center>
         <div class="caption">
-            Figure 7
+            Figure 7. Run time relationship for the recursive heuristics
         </div>
     </div>
     <div class="col-sm-6 mt-3 mt-md-0">
@@ -479,7 +481,7 @@ E) DO with custom heuristic weights (Equation 1)</p>
 
         </center>
         <div class="caption">
-            Figure 8
+            Figure 8. Run time relationship for the DO heuristic
         </div>
     </div>
 </div>
@@ -610,24 +612,6 @@ E) DO with custom heuristic weights (Equation 1)</p>
 
 <p>A DO algorithm for matching available United States Air Force jobs to applicants proves to be the most effective solution in achieving the most matches while allowing more applicants to match with jobs higher on their preference list. Loop techniques can achieve similar results in asset-constrained circumstances and be faster to finish when input data is larger. However, their performance in achieving the greatest number of overall matches considering applicant preferences should never beat that of the DO heuristic. More research or studies should be considered to compare the performance of job-to-applicant matching optimization with human-based techniques such as the job draft.</p>
 
-<h2 id="references">References</h2>
-
-<p>[1] Disciplined convex programming. https://www.cvxpy.org/tutorial/dcp/index.html.</p>
-
-<p>[2] How it works. https://www.nrmp.org/intro-to-the-match/how-matching-algorithm-works/.</p>
-
-<p>[3] National resident matching program. https://www.nrmp.org/, Nov 2022.</p>
-
-<p>[4] A Agnetis. Introduction to matching problems. https://www3.diism.unisi.it/˜agnetis/matchingENGnew.pdf.</p>
-
-<p>[5] Kat Bailey. Afpc adopting innovative officer assignment system it platform, Apr 2019.</p>
-
-<p>[6] Tiffany Berglund, David Schulker, Tracy C. Krueger, and Nelson Lim. Improving the Goal-Setting Process for U.S. Department of the Air Force Recruiters. RAND Corporation, Santa Monica, CA, 2021.</p>
-
-<p>[7] Rebecca Butler. Job distribution optimizer, May 2020.</p>
-
-<p>[8] Sean Robson, Maria C. Lytell, Matthew Walsh, Kimberly Curry Hall, Kirsten M. Keller, Vikram Kilambi, Joshua Snoke, Jonathan W. Welburn, Patrick S. Roberts, Owen Hall, and Louis T. Mariano. U.S. Air Force Enlisted Classification and Reclassification: Potential Improvements Using Machine Learning</p>
-
 <h2 id="github-repo">Github Repo</h2>
 
 <p>You can find the latest MILP at the following repository.</p>
@@ -645,6 +629,24 @@ E) DO with custom heuristic weights (Equation 1)</p>
 </div>
 
 </div>
+
+<h2 id="references">References</h2>
+
+<p>[1] Disciplined convex programming. https://www.cvxpy.org/tutorial/dcp/index.html.</p>
+
+<p>[2] How it works. https://www.nrmp.org/intro-to-the-match/how-matching-algorithm-works/.</p>
+
+<p>[3] National resident matching program. https://www.nrmp.org/, Nov 2022.</p>
+
+<p>[4] A Agnetis. Introduction to matching problems. https://www3.diism.unisi.it/˜agnetis/matchingENGnew.pdf.</p>
+
+<p>[5] Kat Bailey. Afpc adopting innovative officer assignment system it platform, Apr 2019.</p>
+
+<p>[6] Tiffany Berglund, David Schulker, Tracy C. Krueger, and Nelson Lim. Improving the Goal-Setting Process for U.S. Department of the Air Force Recruiters. RAND Corporation, Santa Monica, CA, 2021.</p>
+
+<p>[7] Rebecca Butler. Job distribution optimizer, May 2020.</p>
+
+<p>[8] Sean Robson, Maria C. Lytell, Matthew Walsh, Kimberly Curry Hall, Kirsten M. Keller, Vikram Kilambi, Joshua Snoke, Jonathan W. Welburn, Patrick S. Roberts, Owen Hall, and Louis T. Mariano. U.S. Air Force Enlisted Classification and Reclassification: Potential Improvements Using Machine Learning</p>
 
           </article>
 
