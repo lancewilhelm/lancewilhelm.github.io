@@ -87,7 +87,7 @@ The selected model yielded an accuracy of 98.421% when evaluated on the test dat
 
 ## Future Work
 
-Better detection of ROIs can be achieved through deep learning. Two notable models that handle text detection within images are EAST [28] and CRAFT [2]. These models are trained to find text within an image and would improve step 1 of the algorithm presented in this project. Boosting the accuracy of the ROI detection would impact the algorithm's overall performance, as most of the failures occur in the incorrect classification of text regions.
+Better detection of ROIs can be achieved through deep learning. Two notable models that handle text detection within images are EAST and CRAFT. These models are trained to find text within an image and would improve step 1 of the algorithm presented in this project. Boosting the accuracy of the ROI detection would impact the algorithm's overall performance, as most of the failures occur in the incorrect classification of text regions.
 
 Furthermore, more exploration of CNNs for digit classification could be performed. There exist published models that currently handle the classification of the SVHN dataset better than ResNet18. However, any gains in classification performance for this algorithm would not outweigh the benefits of increasing step 1 performance. Initial efforts should be focused on improving ROI detection.
 
