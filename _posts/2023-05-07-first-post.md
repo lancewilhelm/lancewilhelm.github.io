@@ -3,7 +3,8 @@ layout: post
 title: Embracing New Horizons
 date: 2023-05-07 16:44:00
 description: Hello blog world!
-categories: 
+tags: ML
+categories: Personal
 disqus_comments: false
 related_posts: false
 ---
