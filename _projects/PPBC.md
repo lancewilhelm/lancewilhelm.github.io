@@ -2,7 +2,7 @@
 layout: page
 title: Ping Pong Ball Clock (PPBC)
 description: Novel clock design driven by LED strips and a Raspberry Pi controlled via a web app
-img: assets/img/ppbc.jpg
+img: assets/img/ppbc/ppbc.jpg
 importance: 1
 category: fun
 ---
@@ -22,7 +22,7 @@ The layout of the LED strips called for a font libraries and character writing f
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="assets/img/layout visualizer-01.jpg" title="PPBC Layout Design" class="img-fluid rounded z-depth-1" %}
+        {% include figure.html path="assets/img/ppbc/layout visualizer-01.jpg" title="PPBC Layout Design" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 <div class="caption">
@@ -33,19 +33,19 @@ Novel font libraries were designed to give the user something more to look at th
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="assets/img/layout visualizer-02.jpg" title="PPBC Digit Font 1" class="img-fluid rounded z-depth-1" %}
+        {% include figure.html path="assets/img/ppbc/layout visualizer-02.jpg" title="PPBC Digit Font 1" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="assets/img/layout visualizer-03.jpg" title="PPBC Digit Font 2" class="img-fluid rounded z-depth-1" %}
+        {% include figure.html path="assets/img/ppbc/layout visualizer-03.jpg" title="PPBC Digit Font 2" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="assets/img/layout visualizer-04.jpg" title="PPBC Character Font" class="img-fluid rounded z-depth-1" %}
+        {% include figure.html path="assets/img/ppbc/layout visualizer-04.jpg" title="PPBC Character Font" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 <div class="caption">

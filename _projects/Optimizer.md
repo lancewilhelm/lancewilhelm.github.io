@@ -1,11 +1,13 @@
 ---
 layout: page
 title: USAF Recruit Job Match Optimizer
-description: Mixed-integer linear program optimization for matching USAF applicants to jobs
+description: Applied Analytics Practicum, Mixed-integer linear program optimization for matching USAF applicants to jobs
 img: assets/img/optimizer/optimizer_equation.png
 importance: 1
 category: work
 ---
+
+<a href="{{ 'assets/pdf/Practicum_Final_Report_Wilhelm.pdf' | relative_url}}" target="_blank" rel="noopener noreferrer" class="float-right"><i class="fas fa-file-pdf" style="font-size: 20pt;"></i></a>
 
 ## Introduction
 
@@ -77,7 +79,7 @@ The results from each trial were stored in an excel sheet containing the followi
     </div>
 </div>
 <div class="caption">
-    Figure 1. Matching results
+    Figure 1. Initial Results from all 60 trials
 </div>
 
 The overall performance across all trials is not consistent, which is expected given that the trials are run across multiple periods with 4 different datasets and 5 different matching heuristics. More insight should be gleaned from the result attributes and heuristic performance.
@@ -94,7 +96,7 @@ The results of the different statistics should be compared to observe any correl
     </div>
 </div>
 <div class="caption">
-    Figure 2. Correlation plot
+    Figure 2. Correlations between numerical variables in the results table
 </div>
 
 There is a clear positive correlation between jobs and date range length, which follows the logic: as the date range increases, more jobs become available. Next, there is a positive relationship between the total number of applicants on the QW list and who is available. More significantly, there is a positive correlation between the job match rate and the number of applicants on the QW and available QW. This indicates that the more applicants are in our QW and available, the better our match rate will be. Figure 3 shows this correlation and plots a linear regression.
@@ -107,7 +109,7 @@ There is a clear positive correlation between jobs and date range length, which 
     </div>
 </div>
 <div class="caption">
-    Figure 3. Correlation plot
+    Figure 3. Plot of total QW count versus job match rate
 </div>
 
 However, the best-fit line should not be utilized to make useful projections other than rough job match rate performance estimates. Ultimately the recruiting goal is to have a job match rate of 100%, so our positive correlation indicates that to increase the number of matches, the number of applicants on the QW and available should increase. This has long been known within the recruiting enterprise and has been the focus of remedial recruiting efforts in the past year.
@@ -128,7 +130,7 @@ No loop heuristic outperformed the DO heuristic in job-matching performance. A n
     </div>
 </div>
 <div class="caption">
-    Figure 4.
+    Figure 4. Differences in matches for each heuristic compared to heuristic E
 </div>
 
 However, there are trials where their performance matches, albeit only for trials when the total number of matches is low. Figure 5 shows a clear relationship between the number of matches and the spread of performance in the heuristics. As the number of matches increases, the performance of the loop heuristics decreases, and the spread in performance increases, as indicated by Figure 6.
@@ -139,7 +141,7 @@ However, there are trials where their performance matches, albeit only for trial
         {% include figure.html path="assets/img/optimizer/fig_5.jpg" title="Figure 5" class="img-fluid rounded z-depth-1" width=600 %}
         </center>
         <div class="caption">
-            Figure 5
+            Figure 5. Matches versus matches difference to E
         </div>
     </div>
     <div class="col-sm-6 mt-3 mt-md-0">
@@ -147,7 +149,7 @@ However, there are trials where their performance matches, albeit only for trial
         {% include figure.html path="assets/img/optimizer/fig_6.jpg" title="Figure 6" class="img-fluid rounded z-depth-1" width=600 %}
         </center>
         <div class="caption">
-            Figure 6
+            Figure 6. Matches versus standard deviation of matches difference to E
         </div>
     </div>
 </div>
@@ -172,7 +174,7 @@ Table 1: Run time, in seconds, statistics by heuristic (n = 12)
         {% include figure.html path="assets/img/optimizer/fig_7.jpg" title="Figure 7" class="img-fluid rounded z-depth-1" width=600 %}
         </center>
         <div class="caption">
-            Figure 7
+            Figure 7. Run time relationship for the recursive heuristics
         </div>
     </div>
     <div class="col-sm-6 mt-3 mt-md-0">
@@ -180,7 +182,7 @@ Table 1: Run time, in seconds, statistics by heuristic (n = 12)
         {% include figure.html path="assets/img/optimizer/fig_8.jpg" title="Figure 8" class="img-fluid rounded z-depth-1" width=600 %}
         </center>
         <div class="caption">
-            Figure 8
+            Figure 8. Run time relationship for the DO heuristic
         </div>
     </div>
 </div>
@@ -231,6 +233,14 @@ Job booking strategies are closely interwoven into the goaling and incentive str
 
 A DO algorithm for matching available United States Air Force jobs to applicants proves to be the most effective solution in achieving the most matches while allowing more applicants to match with jobs higher on their preference list. Loop techniques can achieve similar results in asset-constrained circumstances and be faster to finish when input data is larger. However, their performance in achieving the greatest number of overall matches considering applicant preferences should never beat that of the DO heuristic. More research or studies should be considered to compare the performance of job-to-applicant matching optimization with human-based techniques such as the job draft.
 
+## Github Repo
+
+You can find the latest MILP at the following repository.
+
+<div class="repositories d-flex flex-wrap flex-md-row flex-column justify-content-between align-items-center">
+    {% include repository/repo.html repository='lancewilhelm/AFRSOptimizer' %}
+</div>
+
 ## References
 
 [1] Disciplined convex programming. https://www.cvxpy.org/tutorial/dcp/index.html.
@@ -248,11 +258,3 @@ A DO algorithm for matching available United States Air Force jobs to applicants
 [7] Rebecca Butler. Job distribution optimizer, May 2020.
 
 [8] Sean Robson, Maria C. Lytell, Matthew Walsh, Kimberly Curry Hall, Kirsten M. Keller, Vikram Kilambi, Joshua Snoke, Jonathan W. Welburn, Patrick S. Roberts, Owen Hall, and Louis T. Mariano. U.S. Air Force Enlisted Classification and Reclassification: Potential Improvements Using Machine Learning
-
-## Github Repo
-
-You can find the latest MILP at the following repository.
-
-<div class="repositories d-flex flex-wrap flex-md-row flex-column justify-content-between align-items-center">
-    {% include repository/repo.html repository='lancewilhelm/AFRSOptimizer' %}
-</div>

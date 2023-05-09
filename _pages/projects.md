@@ -5,7 +5,7 @@ permalink: /projects/
 description: A collection of my personal, academic, and professional projects. Given my limited traditional academic experiences this has been the primary avenue for the creative employment of my knowledge and skills. 
 nav: true
 nav_order: 2
-display_categories: [work, fun]
+display_categories: [work, academic, fun]
 horizontal: false
 ---
 
