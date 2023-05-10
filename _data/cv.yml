@@ -108,7 +108,7 @@
   contents:
     - title: Deep Learning
       items: 
-        - Theory and Implementation
+        - Explainable AI
         - Multimodal
         - Computer Vision
         - Natural Language Processing

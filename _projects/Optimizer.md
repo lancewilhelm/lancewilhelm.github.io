@@ -7,7 +7,7 @@ importance: 1
 category: work
 ---
 
-<a href="{{ 'assets/pdf/Practicum_Final_Report_Wilhelm.pdf' | relative_url}}" target="_blank" rel="noopener noreferrer" class="float-right"><i class="fas fa-file-pdf" style="font-size: 20pt;"></i></a>
+<a href="{{ 'assets/pdf/Practicum_Final_Report_Wilhelm.pdf' | relative_url}}" target="_blank" rel="noopener noreferrer" class="float-right">Report <i class="fas fa-file-pdf" style="font-size: 20pt;"></i></a>
 
 ## Introduction
 
@@ -49,7 +49,7 @@ E) DO with custom heuristic weights (Equation 1)
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
         <center>
-        {% include figure.html path="assets/img/optimizer/optimizer_equation.png" title="Equation 1" class="img-fluid rounded z-depth-1" width=400 %}
+        {% include figure.html path="assets/img/optimizer/optimizer_equation.png" title="Equation 1" class="img-fluid rounded z-depth-1" width=400 zoomable=true %}
         </center>
     </div>
 </div>
@@ -74,7 +74,7 @@ The results from each trial were stored in an excel sheet containing the followi
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
         <center>
-        {% include figure.html path="assets/img/optimizer/match_rates.png" title="Overall match rates" class="img-fluid rounded z-depth-1" width=600 %}
+        {% include figure.html path="assets/img/optimizer/match_rates.png" title="Overall match rates" class="img-fluid rounded z-depth-1" width=600 zoomable=true %}
         </center>
     </div>
 </div>
@@ -91,7 +91,7 @@ The results of the different statistics should be compared to observe any correl
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
         <center>
-        {% include figure.html path="assets/img/optimizer/corr_plot.jpg" title="Correlations" class="img-fluid rounded z-depth-1" width=600 %}
+        {% include figure.html path="assets/img/optimizer/corr_plot.jpg" title="Correlations" class="img-fluid rounded z-depth-1" width=600 zoomable=true %}
         </center>
     </div>
 </div>
@@ -104,7 +104,7 @@ There is a clear positive correlation between jobs and date range length, which 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
         <center>
-        {% include figure.html path="assets/img/optimizer/qw_v_match_rate.jpg" title="QW vs. match rate" class="img-fluid rounded z-depth-1" width=600 %}
+        {% include figure.html path="assets/img/optimizer/qw_v_match_rate.jpg" title="QW vs. match rate" class="img-fluid rounded z-depth-1" width=600 zoomable=true %}
         </center>
     </div>
 </div>
@@ -125,7 +125,7 @@ No loop heuristic outperformed the DO heuristic in job-matching performance. A n
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
         <center>
-        {% include figure.html path="assets/img/optimizer/fig_4.jpg" title="Figure 4" class="img-fluid rounded z-depth-1" width=600 %}
+        {% include figure.html path="assets/img/optimizer/fig_4.jpg" title="Figure 4" class="img-fluid rounded z-depth-1" width=600 zoomable=true %}
         </center>
     </div>
 </div>
@@ -138,7 +138,7 @@ However, there are trials where their performance matches, albeit only for trial
 <div class="row">
     <div class="col-sm-6 mt-3 mt-md-0">
         <center>
-        {% include figure.html path="assets/img/optimizer/fig_5.jpg" title="Figure 5" class="img-fluid rounded z-depth-1" width=600 %}
+        {% include figure.html path="assets/img/optimizer/fig_5.jpg" title="Figure 5" class="img-fluid rounded z-depth-1" width=600 zoomable=true %}
         </center>
         <div class="caption">
             Figure 5. Matches versus matches difference to E
@@ -146,7 +146,7 @@ However, there are trials where their performance matches, albeit only for trial
     </div>
     <div class="col-sm-6 mt-3 mt-md-0">
         <center>
-        {% include figure.html path="assets/img/optimizer/fig_6.jpg" title="Figure 6" class="img-fluid rounded z-depth-1" width=600 %}
+        {% include figure.html path="assets/img/optimizer/fig_6.jpg" title="Figure 6" class="img-fluid rounded z-depth-1" width=600 zoomable=true %}
         </center>
         <div class="caption">
             Figure 6. Matches versus standard deviation of matches difference to E
@@ -171,7 +171,7 @@ Table 1: Run time, in seconds, statistics by heuristic (n = 12)
 <div class="row">
     <div class="col-sm-6 mt-3 mt-md-0">
         <center>
-        {% include figure.html path="assets/img/optimizer/fig_7.jpg" title="Figure 7" class="img-fluid rounded z-depth-1" width=600 %}
+        {% include figure.html path="assets/img/optimizer/fig_7.jpg" title="Figure 7" class="img-fluid rounded z-depth-1" width=600 zoomable=true %}
         </center>
         <div class="caption">
             Figure 7. Run time relationship for the recursive heuristics
@@ -179,7 +179,7 @@ Table 1: Run time, in seconds, statistics by heuristic (n = 12)
     </div>
     <div class="col-sm-6 mt-3 mt-md-0">
         <center>
-        {% include figure.html path="assets/img/optimizer/fig_8.jpg" title="Figure 8" class="img-fluid rounded z-depth-1" width=600 %}
+        {% include figure.html path="assets/img/optimizer/fig_8.jpg" title="Figure 8" class="img-fluid rounded z-depth-1" width=600 zoomable=true %}
         </center>
         <div class="caption">
             Figure 8. Run time relationship for the DO heuristic

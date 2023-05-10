@@ -7,7 +7,7 @@ importance: 1
 category: academic
 ---
 
-<a href="{{ 'assets/pdf/CS6476___Final_Project.pdf' | relative_url}}" target="_blank" rel="noopener noreferrer" class="float-right"><i class="fas fa-file-pdf" style="font-size: 20pt;"></i></a>
+<a href="{{ 'assets/pdf/CS6476___Final_Project.pdf' | relative_url}}" target="_blank" rel="noopener noreferrer" class="float-right">Report <i class="fas fa-file-pdf" style="font-size: 20pt;"></i></a>
 
 ## Introduction
 Image classification using artificial intelligence techniques, including deep learning, has been a topic of extensive research. Early classification techniques involved methods such as Scale Invariant Feature Transform (SIFT), Histogram of Gradients (HOG), support vector machines (SVM), and K-means clustering. However, the advent of Convolutional Neural Networks (CNN) brought about significant improvements in the ability of computers to quickly and accurately classify images.
@@ -33,7 +33,7 @@ ROIs detected in the first step are passed through the trained CNN to receive di
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
         <center>
-        {% include figure.html path="assets/img/house numbers/fig_1a.jpg" title="Figure 1a" class="img-fluid rounded z-depth-1" width=600 %}
+        {% include figure.html path="assets/img/house numbers/fig_1a.jpg" title="Figure 1a" class="img-fluid rounded z-depth-1" width=600 zoomable=true %}
         </center>
     </div>
 </div>
@@ -43,7 +43,7 @@ ROIs detected in the first step are passed through the trained CNN to receive di
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
         <center>
-        {% include figure.html path="assets/img/house numbers/fig_1b.jpg" title="Figure 1b" class="img-fluid rounded z-depth-1" width=600 %}
+        {% include figure.html path="assets/img/house numbers/fig_1b.jpg" title="Figure 1b" class="img-fluid rounded z-depth-1" width=600 zoomable=true %}
         </center>
     </div>
 </div>
@@ -62,7 +62,7 @@ Additional models were trained using the original 32 square pixel images in colo
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
         <center>
-        {% include figure.html path="assets/img/house numbers/fig_2.jpg" title="Figure 2" class="img-fluid rounded z-depth-1" width=600 %}
+        {% include figure.html path="assets/img/house numbers/fig_2.jpg" title="Figure 2" class="img-fluid rounded z-depth-1" width=600 zoomable=true %}
         </center>
     </div>
 </div>
@@ -77,7 +77,7 @@ The selected model yielded an accuracy of 98.421% when evaluated on the test dat
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
         <center>
-        {% include figure.html path="assets/img/house numbers/fig_3.jpg" title="Figure 3" class="img-fluid rounded z-depth-1" width=600 %}
+        {% include figure.html path="assets/img/house numbers/fig_3.jpg" title="Figure 3" class="img-fluid rounded z-depth-1" width=600 zoomable=true %}
         </center>
     </div>
 </div>

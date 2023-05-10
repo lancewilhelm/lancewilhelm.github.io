@@ -28,7 +28,7 @@ I am an experienced team and laboratory leader with a demonstrated history of wo
 #### Research Interests
 
 - Deep Learning
-  - Theory and Implementation
+  - Explainable AI
   - Multimodal
   - Computer Vision
   - Natural Language Processing
