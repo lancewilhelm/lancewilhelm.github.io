@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <!-- Head -->
+  <head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">    <!-- Metadata, OpenGraph and Schema.org -->
+    
+
+    <!-- Standard metadata -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Hateful Memes Challenge - Next Move | Lance T. Wilhelm</title>
+    <meta name="author" content="Lance T. Wilhelm">
+    <meta name="description" content="CS7643 Deep Learning final project, attempts improvement of multimodal classification for hateful memes">
+    <meta name="keywords" content="jekyll, jekyll-theme, academic-website, portfolio-website, lance wilhelm, air force">
+
+
+    <!-- Bootstrap & MDB -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha256-DF7Zhf293AJxJNTmh5zhoYYIMs2oXitRfBjY+9L//AY=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mdbootstrap@4.20.0/css/mdb.min.css" integrity="sha256-jpjYvU3G3N6nrrBwXJoVEYI/0zw8htfFnhT9ljN3JJw=" crossorigin="anonymous">
+
+    <!-- Bootstrap Table -->
+    <link defer rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.21.3/dist/bootstrap-table.min.css">
+
+    <!-- Fonts & Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css" integrity="sha256-mUZM63G8m73Mcidfrv5E+Y61y7a12O5mW4ezU3bxqW4=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/academicons@1.9.1/css/academicons.min.css" integrity="sha256-i1+4qU2G2860dGGIOJscdC30s9beBXjFfzjWLjBRsBg=" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:100,300,400,500,700|Material+Icons">
+
+    <!-- Code Syntax Highlighting -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jwarby/jekyll-pygments-themes@master/github.css" media="" id="highlight_theme_light">
+
+    
+
+    <!-- Styles -->
+    
+    <link rel="shortcut icon" href="data:image/svg+xml,&lt;svg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20100%20100%22&gt;&lt;text%20y=%22.9em%22%20font-size=%2290%22&gt;%F0%9F%A4%93&lt;/text&gt;&lt;/svg&gt;">
+    
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <link rel="canonical" href="https://lancewilhelm.github.io/projects/Hateful%20Memes/">
+
+    <!-- Dark Mode -->
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jwarby/jekyll-pygments-themes@master/native.css" media="none" id="highlight_theme_dark">
+
+    <script src="/assets/js/theme.js"></script>
+    <script src="/assets/js/dark_mode.js"></script>
+    
+
+  </head>
+
+  <!-- Body -->
+  <body class="fixed-top-nav ">
+
+    <!-- Header -->
+    <header>
+
+      <!-- Nav Bar -->
+      <nav id="navbar" class="navbar navbar-light navbar-expand-sm fixed-top">
+        <div class="container">
+          <a class="navbar-brand title font-weight-lighter" href="/">Lance T. Wilhelm</a>
+          <!-- Navbar Toggle -->
+          <button class="navbar-toggler collapsed ml-auto" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar top-bar"></span>
+            <span class="icon-bar middle-bar"></span>
+            <span class="icon-bar bottom-bar"></span>
+          </button>
+
+          <div class="collapse navbar-collapse text-right" id="navbarNav">
+            <ul class="navbar-nav ml-auto flex-nowrap">
+
+              <!-- About -->
+              <li class="nav-item ">
+                <a class="nav-link" href="/">About</a>
+              </li>
+              
+              <!-- Blog -->
+              <li class="nav-item ">
+                <a class="nav-link" href="/blog/">Blog</a>
+              </li>
+
+              <!-- Other pages -->
+              <li class="nav-item ">
+                <a class="nav-link" href="/publications/">Publications</a>
+              </li>
+              <li class="nav-item ">
+                <a class="nav-link" href="/projects/">Projects</a>
+              </li>
+              <li class="nav-item ">
+                <a class="nav-link" href="/repositories/">Repositories</a>
+              </li>
+              <li class="nav-item ">
+                <a class="nav-link" href="/cv/">CV</a>
+              </li>
+
+              <!-- Toogle theme mode -->
+              <li class="toggle-container">
+                <button id="light-toggle" title="Change theme">
+                  <i class="fas fa-moon"></i>
+                  <i class="fas fa-sun"></i>
+                </button>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+      <!-- Scrolling Progress Bar -->
+      <progress id="progress" value="0">
+        <div class="progress-container">
+          <span class="progress-bar"></span>
+        </div>
+      </progress>
+    </header>
+
+
+    <!-- Content -->
+    <div class="container mt-5">
+      
+        <!-- page.html -->
+        <div class="post">
+
+          <header class="post-header">
+            <h1 class="post-title">Hateful Memes Challenge - Next Move</h1>
+            <p class="post-description">CS7643 Deep Learning final project, attempts improvement of multimodal classification for hateful memes</p>
+          </header>
+
+          <article>
+            <p><a href="/assets/pdf/cs7643_final_project.pdf" target="_blank" rel="noopener noreferrer" class="float-right">Report <i class="fas fa-file-pdf" style="font-size: 20pt;"></i></a></p>
+
+<h2 id="introduction---background---motivation">Introduction - Background - Motivation</h2>
+
+<p>This project focuses on improving hate speech classification in multimodal memes. The aim is to enhance the Visual BERT COCO model and achieve accuracy comparable to or better than human performance. To accomplish this, the project employs semi-supervised learning techniques to re-label data from the Memotion Dataset, thereby expanding the training dataset and improving model performance.</p>
+
+<p>Multimodal reasoning plays a crucial role in understanding real-world problems that involve interactions between humans and their environment. The project addresses the challenge of confounding memes, where the text and image may contradict each other, by refining the Visual BERT COCO model. By tackling this limitation, the project aims to achieve more accurate hate speech classification in multimodal memes.</p>
+
+<p>The project emphasizes the significance of proper content control, particularly with regard to hate speech on social media platforms. By developing a model that can accurately and autonomously identify and remove hateful memes, the project seeks to reduce the spread and impact of hate speech online. The Hateful Memes dataset, provided by Facebook AI, serves as the foundation for training hate speech classification models, showcasing its importance in advancing multimodal reasoning and multimodal model development.</p>
+
+<p>By leveraging semi-supervised learning and utilizing the Memotion Dataset, the project expands the training dataset to improve the performance of the Visual BERT COCO model. With the aim of achieving accuracy comparable to human judgment, this project contributes to the ongoing efforts to mitigate hate speech and promote responsible content control in the digital sphere.</p>
+
+<h2 id="approach">Approach</h2>
+
+<p>Our approach is aimed at improving upon the success of the winners of the Hateful Memes Challenge. To achieve this, we focused on expanding the dataset using semi-supervised learning techniques, specifically by adopting a similar architecture to the FixMatch algorithm introduced by Sohn et al. (Figure 1).</p>
+
+<div class="row">
+    <div class="col-sm mt-3 mt-md-0">
+        <center>
+        <figure>
+
+  <picture>
+    
+    <source class="responsive-img-srcset" media="(max-width: 480px)" srcset="/assets/img/hateful%20memes/fig_2-480.webp"></source>
+    <source class="responsive-img-srcset" media="(max-width: 800px)" srcset="/assets/img/hateful%20memes/fig_2-800.webp"></source>
+    <source class="responsive-img-srcset" media="(max-width: 1400px)" srcset="/assets/img/hateful%20memes/fig_2-1400.webp"></source>
+    
+
+    <!-- Fallback to the original file -->
+    <img src="/assets/img/hateful%20memes/fig_2.jpg" class="img-fluid rounded z-depth-1" width="600" height="auto" title="Figure 1" data-zoomable="" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
+
+  </picture>
+
+</figure>
+
+        </center>
+    </div>
+</div>
+<div class="caption">
+    Figure 1. FixMatch algorithm
+</div>
+
+<p>We drew inspiration from the implementation and fine-tuning of the Visual BERT model by Velioglu and Rose. Recognizing the limited size of the Hateful Memes dataset (10,000 images), we sought to incorporate additional training data from larger datasets such as VisualGenome, COCO, and Conceptual Captions. We combined the Hateful Memes dataset with the Memotion 7K dataset, resulting in a total of 19,132 memes.</p>
+
+<p>The key aspect of our improved model’s performance lies in the extraction of features from the images using a “ResNeXT-152 based Mask-RCNN model trained on VisualGenome.” These visual embeddings are then projected into the textual embedding space before passing them through the transformer layers of the Visual BERT model (Figure 2).</p>
+
+<div class="row">
+    <div class="col-sm mt-3 mt-md-0">
+        <center>
+        <figure>
+
+  <picture>
+    
+    <source class="responsive-img-srcset" media="(max-width: 480px)" srcset="/assets/img/hateful%20memes/fig_3-480.webp"></source>
+    <source class="responsive-img-srcset" media="(max-width: 800px)" srcset="/assets/img/hateful%20memes/fig_3-800.webp"></source>
+    <source class="responsive-img-srcset" media="(max-width: 1400px)" srcset="/assets/img/hateful%20memes/fig_3-1400.webp"></source>
+    
+
+    <!-- Fallback to the original file -->
+    <img src="/assets/img/hateful%20memes/fig_3.jpg" class="img-fluid rounded z-depth-1" width="600" height="auto" title="Figure 2" data-zoomable="" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
+
+  </picture>
+
+</figure>
+
+        </center>
+    </div>
+</div>
+<div class="caption">
+    Figure 2. Visual BERT process
+</div>
+
+<p>We prepared the environment and model setup following the guidelines provided by Team HateDetectron’s successful implementation. This involved installing Facebook AI’s Multimodal Framework (MMF) package, loading the Hateful Memes dataset into the framework, and integrating the Memotion 7K dataset.</p>
+
+<p>The initial training metadata consisted of 8,928 reliably labeled memes, including data from the Hateful Memes training dataset, the hateful meme Dev seen dataset, and a subset of labeled memes from the Memotion 7K dataset. The Visual BERT model, pretrained on COCO, was trained using these features and metadata.</p>
+
+<p>For semi-supervised learning, we created new metadata for the remaining unlabeled memes from the Memotion 7K dataset. Pseudo labels were assigned to these memes, and a threshold was set to filter positive and negative pseudo labels. This resulted in 1,534 pseudo-labeled memes.</p>
+
+<p>To enhance the training data, we applied image transformations, such as cutout (Figure 3), to the 1,534 pseudo-labeled memes, generating strongly augmented memes. These augmented memes were then concatenated with the original training metadata, resulting in a new training dataset of 10,462 memes.</p>
+
+<div class="row">
+    <div class="col-sm mt-3 mt-md-0">
+        <center>
+        <figure>
+
+  <picture>
+    
+    <source class="responsive-img-srcset" media="(max-width: 480px)" srcset="/assets/img/hateful%20memes/fig_4-480.webp"></source>
+    <source class="responsive-img-srcset" media="(max-width: 800px)" srcset="/assets/img/hateful%20memes/fig_4-800.webp"></source>
+    <source class="responsive-img-srcset" media="(max-width: 1400px)" srcset="/assets/img/hateful%20memes/fig_4-1400.webp"></source>
+    
+
+    <!-- Fallback to the original file -->
+    <img src="/assets/img/hateful%20memes/fig_4.jpg" class="img-fluid rounded z-depth-1" width="600" height="auto" title="Figure 3" data-zoomable="" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
+
+  </picture>
+
+</figure>
+
+        </center>
+    </div>
+</div>
+<div class="caption">
+    Figure 3. Example of an image with a cutout augmentation
+</div>
+
+<p>The Visual BERT model was retrained using the new training metadata and the same hyperparameters. The performance of the model was evaluated on an unseen testing dataset, measuring accuracy and AUROC.</p>
+
+<p>Throughout the process, we iteratively refined the inclusion of pseudo-labeled memes based on analysis and domain knowledge. However, we discovered that incorporating model-selected pseudo-labeled memes did not improve the performance metrics as expected.</p>
+
+<p>We realized that using semi-supervised learning without human review and modification was infeasible. Therefore, we manually reviewed 822 pseudo-labeled hateful memes and identified only 282 as potentially valid. These 282 cherry-picked pseudo-labeled memes were incorporated into the training metadata, but even after retraining the model, the performance metrics did not show significant improvement.</p>
+
+<h2 id="experiments-and-results">Experiments and Results</h2>
+
+<p>Our objective was to enhance the performance metrics of the baseline model, Visual Bert COCO, with the goal of achieving human-like accuracy (84.7%) in classifying hateful memes. We used the Memotion Dataset 7K and employed semi-supervised learning to enrich the original Facebook AI training data.</p>
+
+<p>We undertook three stages of incremental training and data analysis. The main performance metrics used were accuracy and AUROC. The baseline model was fine-tuned using the original Facebook AI data and two sets of hyperparameters. The loss function was set as cross-entropy with the optimization algorithm as Adam. The visual embedding dimension was set as 2048.</p>
+
+<p>Two optimal sets of hyperparameters were found via grid search. Following that, three stages of training data enrichment were undertaken. We observed that despite the increase and manual modification of pseudo labels in the training metadata, the model’s performance did not significantly improve.</p>
+
+<p>We identified a gap in the data assumption between testing and pseudo-labeled training metadata. The self-attention layer, a unique feature of Visual BERT, played a critical role in this process.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th><strong>Model Hyperparameters</strong></th>
+      <th><strong>1</strong></th>
+      <th><strong>2</strong></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Steps</td>
+      <td>3000</td>
+      <td>3500</td>
+    </tr>
+    <tr>
+      <td>Learning Rate</td>
+      <td>0.3</td>
+      <td>0.6</td>
+    </tr>
+    <tr>
+      <td>Learning Rate Decay</td>
+      <td>warmup linear</td>
+      <td>warmup cosine</td>
+    </tr>
+    <tr>
+      <td>Warm Up</td>
+      <td>TRUE</td>
+      <td>TRUE</td>
+    </tr>
+    <tr>
+      <td>Warm Up Steps</td>
+      <td>2000</td>
+      <td>500</td>
+    </tr>
+    <tr>
+      <td>Batch Size</td>
+      <td>32</td>
+      <td>80</td>
+    </tr>
+    <tr>
+      <td>Optimizer Learning Rate</td>
+      <td>5e-5</td>
+      <td>5e-5</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Table 1:</strong> Best model hyperparameters</p>
+
+<table>
+  <thead>
+    <tr>
+      <th><strong>Dataset</strong></th>
+      <th><strong>Model</strong></th>
+      <th><strong>Validation Acc.</strong></th>
+      <th><strong>Validation AUROC</strong></th>
+      <th><strong>Test Acc.</strong></th>
+      <th><strong>Test AUROC</strong></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Hateful Memes (Baseline)</td>
+      <td>1</td>
+      <td>68.33</td>
+      <td>73.59</td>
+      <td>70.30</td>
+      <td>75.23</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>2</td>
+      <td>70.37</td>
+      <td>72.91</td>
+      <td>72.60</td>
+      <td>76.84</td>
+    </tr>
+    <tr>
+      <td>HM + Memotion 328</td>
+      <td>1</td>
+      <td>71.30</td>
+      <td>74.07</td>
+      <td>72.35</td>
+      <td>76.87</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>2</td>
+      <td>74.26</td>
+      <td>74.57</td>
+      <td>73.10</td>
+      <td>78.45</td>
+    </tr>
+    <tr>
+      <td>HM + Memotion 328 + Pseudo-labeled 1,534</td>
+      <td>1</td>
+      <td>69.07</td>
+      <td>75.00</td>
+      <td>69.80</td>
+      <td>75.88</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>2</td>
+      <td>70.00</td>
+      <td>75.28</td>
+      <td>72.30</td>
+      <td>77.83</td>
+    </tr>
+    <tr>
+      <td>HM + Memotion 328 + Filtered Pseudo-labeled 282</td>
+      <td>1</td>
+      <td>70.56</td>
+      <td>75.14</td>
+      <td>71.90</td>
+      <td>76.55</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>2</td>
+      <td>68.33</td>
+      <td>73.50</td>
+      <td>69.85</td>
+      <td>74.28</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Table 2:</strong> Model performance</p>
+
+<div class="row">
+    <div class="col-sm mt-3 mt-md-0">
+        <center>
+        <figure>
+
+  <picture>
+    
+    <source class="responsive-img-srcset" media="(max-width: 480px)" srcset="/assets/img/hateful%20memes/fig_6-480.webp"></source>
+    <source class="responsive-img-srcset" media="(max-width: 800px)" srcset="/assets/img/hateful%20memes/fig_6-800.webp"></source>
+    <source class="responsive-img-srcset" media="(max-width: 1400px)" srcset="/assets/img/hateful%20memes/fig_6-1400.webp"></source>
+    
+
+    <!-- Fallback to the original file -->
+    <img src="/assets/img/hateful%20memes/fig_6.jpg" class="img-fluid rounded z-depth-1" width="600" height="auto" title="Figure 34" data-zoomable="" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
+
+  </picture>
+
+</figure>
+
+        </center>
+    </div>
+</div>
+<div class="caption">
+    Figure 4. Training and validation losses
+</div>
+
+<h2 id="future-work">Future Work</h2>
+<p>In the future, potential avenues of research could include introducing new classification layers, pretraining on additional datasets like COCO for improved transfer learning, using better text encoders to replace the BERT text encoder, and using external sources for additional image content information. Altering model architecture may enhance performance but requires detailed knowledge of current models.</p>
+
+<h2 id="conclusion">Conclusion</h2>
+<p>Our exploration sought to improve performance in the Hateful Memes Challenge by using a semi-supervised learning technique to introduce more data into the training set. Despite various approaches, we found that semi-supervised learning for hateful meme detection is challenging without human interaction and filtering. We also found that adding different structured data to the training dataset did not substantially impact model performance. It is our hope that these insights will inform future work to help reduce hate speech prevalence online.</p>
+
+          </article>
+
+        </div>
+
+      
+    </div>
+
+    <!-- Footer -->    
+    <footer class="fixed-bottom">
+      <div class="container mt-0">
+        © Copyright 2023 Lance T. Wilhelm. Powered by <a href="https://jekyllrb.com/" target="_blank" rel="external nofollow noopener">Jekyll</a> with <a href="https://github.com/alshedivat/al-folio" rel="external nofollow noopener" target="_blank">al-folio</a> theme. Hosted by <a href="https://pages.github.com/" target="_blank" rel="external nofollow noopener">GitHub Pages</a>.
+Last updated: May 18, 2023.
+      </div>
+    </footer>
+
+    <!-- JavaScripts -->
+    <!-- jQuery -->
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+    <!-- Bootsrap & MDB scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha256-fgLAgv7fyCGopR/gBNq2iW3ZKIdqIcyshnUULC4vex8=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mdbootstrap@4.20.0/js/mdb.min.js" integrity="sha256-NdbiivsvWt7VYCt6hYNT3h/th9vSTL4EDWeGs5SN3DA=" crossorigin="anonymous"></script>
+
+    <!-- Masonry & imagesLoaded -->
+  <script defer src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js" integrity="sha256-Nn1q/fx0H7SNLZMQ5Hw5JLaTRZp0yILA/FRexe19VdI=" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
+  <script defer src="/assets/js/masonry.js" type="text/javascript"></script>
+    
+  <!-- Medium Zoom JS -->
+  <script defer src="https://cdn.jsdelivr.net/npm/medium-zoom@1.0.8/dist/medium-zoom.min.js" integrity="sha256-7PhEpEWEW0XXQ0k6kQrPKwuoIomz8R8IYyuU1Qew4P8=" crossorigin="anonymous"></script>
+  <script defer src="/assets/js/zoom.js"></script>
+
+  <!-- Bootstrap Table -->
+  <script defer src="https://unpkg.com/bootstrap-table@1.21.3/dist/bootstrap-table.min.js"></script>
+
+  <!-- Load Common JS -->
+  <script src="/assets/js/no_defer.js"></script>
+  <script defer src="/assets/js/common.js"></script>
+  <script defer src="/assets/js/copy_code.js" type="text/javascript"></script>
+
+    
+  <script async src="https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js"></script>
+  <script async src="https://badge.dimensions.ai/badge.js"></script>
+
+    <!-- MathJax -->
+  <script type="text/javascript">
+    window.MathJax = {
+      tex: {
+        tags: 'ams'
+      }
+    };
+  </script>
+  <script defer type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/tex-mml-chtml.js"></script>
+  <script defer src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+
+    
+    
+
+<!-- Scrolling Progress Bar -->
+<script type="text/javascript">
+  /*
+   * This JavaScript code has been adapted from the article 
+   * https://css-tricks.com/reading-position-indicator/ authored by Pankaj Parashar, 
+   * published on the website https://css-tricks.com on the 7th of May, 2014.
+   * Couple of changes were made to the original code to make it compatible 
+   * with the `al-foio` theme.
+   */
+  const progressBar = $("#progress");
+  /*
+   * We set up the bar after all elements are done loading.
+   * In some cases, if the images in the page are larger than the intended
+   * size they'll have on the page, they'll be resized via CSS to accomodate
+   * the desired size. This mistake, however, breaks the computations as the
+   * scroll size is computed as soon as the elements finish loading.
+   * To account for this, a minimal delay was introduced before computing the
+   * values.
+   */
+  window.onload = function () {
+    setTimeout(progressBarSetup, 50);
+  };
+  /*
+   * We set up the bar according to the browser.
+   * If the browser supports the progress element we use that.
+   * Otherwise, we resize the bar thru CSS styling
+   */
+  function progressBarSetup() {
+    if ("max" in document.createElement("progress")) {
+      initializeProgressElement();
+      $(document).on("scroll", function() {
+        progressBar.attr({ value: getCurrentScrollPosition() });
+      });
+      $(window).on("resize", initializeProgressElement);
+    } else {
+      resizeProgressBar();
+      $(document).on("scroll", resizeProgressBar);
+      $(window).on("resize", resizeProgressBar);
+    }
+  }
+  /*
+   * The vertical scroll position is the same as the number of pixels that
+   * are hidden from view above the scrollable area. Thus, a value > 0 is
+   * how much the user has scrolled from the top
+   */
+  function getCurrentScrollPosition() {
+    return $(window).scrollTop();
+  }
+
+  function initializeProgressElement() {
+    let navbarHeight = $("#navbar").outerHeight(true);
+    $("body").css({ "padding-top": navbarHeight });
+    $("progress-container").css({ "padding-top": navbarHeight });
+    progressBar.css({ top: navbarHeight });
+    progressBar.attr({
+      max: getDistanceToScroll(),
+      value: getCurrentScrollPosition(),
+    });
+  }
+  /*
+   * The offset between the html document height and the browser viewport
+   * height will be greater than zero if vertical scroll is possible.
+   * This is the distance the user can scroll
+   */
+  function getDistanceToScroll() {
+    return $(document).height() - $(window).height();
+  }
+
+  function resizeProgressBar() {
+    progressBar.css({ width: getWidthPercentage() + "%" });
+  }
+  // The scroll ratio equals the percentage to resize the bar
+  function getWidthPercentage() {
+    return (getCurrentScrollPosition() / getDistanceToScroll()) * 100;
+  }
+</script>
+
+  </body>
+</html>
